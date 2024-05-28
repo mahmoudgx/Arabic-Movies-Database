@@ -1,0 +1,35 @@
+import axios, { AxiosRequestConfig } from "axios";
+
+
+export interface FetchResponse<T> {
+  results: T[];
+  total_pages: number;
+  total_results: number;
+  page: number;
+}
+
+
+const axoisInstance = axios.create({
+  baseURL: "https://api.themoviedb.org/3",
+  headers : {
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ODE0ODdlZTY1M2YyYTIyNjNhNTUxNDc4OTY3ZWI1MiIsInN1YiI6IjY2MGNhMTI1ZDQwMGYzMDEzMTA1NDJiYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UYguXPOhdmKMdCYQCsdIomy6FtQCrrW7OPQ1fPPaISY'
+  }
+})
+
+
+class APIClient<T> {
+  endpoint: string;
+
+  constructor(endpoint: string) {
+      this.endpoint = endpoint;
+  }
+
+  getAll = (config: AxiosRequestConfig) => {
+      return axoisInstance
+          .get<FetchResponse<T>>(this.endpoint, config)
+          .then(res => res.data);
+  };
+}
+
+
+export default APIClient
