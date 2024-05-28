@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
-    padding: 50px;
     direction: rtl;
+    padding-bottom: 20px;
   }
   
   @media (min-width: 640px) {
@@ -76,4 +76,3 @@
   .pagination span {
     font-size: 18px;
   }
-  
