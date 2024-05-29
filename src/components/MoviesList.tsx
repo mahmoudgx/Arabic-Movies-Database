@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./MoviesCard.css";
 import placeholder from "../assets/placeholder.png";
 import UseMoviesList from "../hooks/UseMoviesList";
@@ -10,6 +10,14 @@ interface Props {
 const MoviesList = ({ sortBy }: Props) => {
   const [page, setPage] = useState(1);
   const { data, isLoading, error } = UseMoviesList(page, sortBy);
+
+  useEffect(() => {
+    setPage(1);
+  }, [sortBy]);
+
+  useEffect(() => {
+    document.title = "أفلام عربية";
+  }, []);
 
   const handleNextPage = () => {
     if (data && page < data.total_pages) {

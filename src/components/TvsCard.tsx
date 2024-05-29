@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./MoviesCard.css";
 import placeholder from "../assets/placeholder.png";
 import UseTvList from "../hooks/UseTvList";
@@ -10,6 +10,14 @@ interface Props {
 const TvsCard = ({ sortBy }: Props) => {
   const [page, setPage] = useState(1);
   const { data, isLoading, error } = UseTvList(page, sortBy);
+
+  useEffect(() => {
+    document.title = "مسلسلات عربية";
+  }, []);
+
+  useEffect(() => {
+    setPage(1);
+  }, [sortBy]);
 
   const handleNextPage = () => {
     if (data && page < data.total_pages) {
