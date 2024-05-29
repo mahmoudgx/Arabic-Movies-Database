@@ -6,6 +6,7 @@ import TvsCard from "./components/TvsCard";
 import Footer from "./components/Footer";
 import SortMovies from "./components/SortMovies";
 import "./App.css";
+import ScrollToTop from "react-scroll-to-top";
 
 const App = () => {
   const [sortBy, setSortBy] = useState("popularity.desc");
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <Router>
       <div className="app-container">
+        <ScrollToTop smooth />
         <NavBar />
         <div className="main-content">
           <SortMovies sortBy={sortBy} setSortBy={setSortBy} />
