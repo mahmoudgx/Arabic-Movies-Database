@@ -20,9 +20,9 @@ export interface Tv {
   vote_count: number;
 }
 
-const UseTvList = (page: number) =>
+const UseTvList = (page: number, sortBy: string) =>
   useQuery({
-    queryKey: ["Movies", page],
+    queryKey: ["Tv", page, sortBy],
     queryFn: () =>
       apiClient.getAll({
         params: {
@@ -30,7 +30,7 @@ const UseTvList = (page: number) =>
           page: page,
           with_original_language: "ar",
           include_adult: false,
-          sort_by: "vote_count.desc",
+          sort_by: sortBy,
         },
       }),
     staleTime: 24 * 60 * 60 * 1000,

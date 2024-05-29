@@ -18,7 +18,7 @@ const App = () => {
           <SortMovies sortBy={sortBy} setSortBy={setSortBy} />
           <Routes>
             <Route path="/" element={<MoviesList sortBy={sortBy} />} />
-            <Route path="/tv" element={<TvsCard />} />
+            <Route path="/tv" element={<TvsCard sortBy={sortBy} />} />
           </Routes>
         </div>
         <Footer />
