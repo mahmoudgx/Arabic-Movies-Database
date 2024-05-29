@@ -1,0 +1,33 @@
+.sort-movies {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+    gap: 10px;
+    direction: rtl;
+  }
+  
+  .sort-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  
+  .sort-select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .sort-select:focus {
+    border-color: #007bff;
+  }
+  
+  .sort-select option {
+    font-size: 16px;
+  }
+  

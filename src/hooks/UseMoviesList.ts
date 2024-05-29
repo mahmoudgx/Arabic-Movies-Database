@@ -20,9 +20,9 @@ export interface Movies {
   vote_count: number;
 }
 
-const UseMoviesList = (page: number) =>
+const UseMoviesList = (page: number, sortBy: string) =>
   useQuery({
-    queryKey: ["Movies", page],
+    queryKey: ["Movies", page, sortBy],
     queryFn: () =>
       apiClient.getAll({
         params: {
@@ -30,7 +30,7 @@ const UseMoviesList = (page: number) =>
           page: page,
           with_original_language: "ar",
           include_adult: false,
-          sort_by: "vote_count.desc"
+          sort_by: sortBy,
         },
       }),
       staleTime: 24 * 60 * 60 * 1000,

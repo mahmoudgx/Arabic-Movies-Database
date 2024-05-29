@@ -3,9 +3,13 @@ import "./MoviesCard.css";
 import placeholder from "../assets/placeholder.png";
 import UseMoviesList from "../hooks/UseMoviesList";
 
-const MoviesList = () => {
+interface Props {
+  sortBy: string;
+}
+
+const MoviesList = ({ sortBy }: Props) => {
   const [page, setPage] = useState(1);
-  const { data, isLoading, error } = UseMoviesList(page);
+  const { data, isLoading, error } = UseMoviesList(page, sortBy);
 
   const handleNextPage = () => {
     if (data && page < data.total_pages) {
