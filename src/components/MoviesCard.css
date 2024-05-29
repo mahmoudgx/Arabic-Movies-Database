@@ -46,33 +46,26 @@
     margin: 8px 0;
   }
   
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  .pagination button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  .load-button {
+  background-color: #333; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
 
-  }
+.load-button:hover {
+  background-color: #f0a500;
+}
 
-  .pagination button:hover {
-    color: #f0a500;
-  }
-  
-  .pagination button:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
-  }
-  
-  .pagination span {
-    font-size: 18px;
-  }
+.button-container {
+  display: flex;
+  justify-content: center;
+}

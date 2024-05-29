@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
 
 const apiClient = new APIClient<Tv>("/discover/tv");
@@ -20,20 +20,24 @@ export interface Tv {
   vote_count: number;
 }
 
-const UseTvList = (page: number, sortBy: string) =>
-  useQuery({
-    queryKey: ["Tv", page, sortBy],
-    queryFn: () =>
+const UseTvList = (sortBy: string) =>
+  useInfiniteQuery({
+    queryKey: ["Tv", sortBy],
+    queryFn: ({ pageParam = 1 }) =>
       apiClient.getAll({
         params: {
           language: "ar",
-          page: page,
+          page: pageParam,
           with_original_language: "ar",
           include_adult: false,
           sort_by: sortBy,
         },
       }),
     staleTime: 24 * 60 * 60 * 1000,
+    getNextPageParam: (lastPage, allpages) => {
+      return lastPage ? allpages.length + 1 : undefined;
+    },
+    initialPageParam: 1,
   });
 
 export default UseTvList;
