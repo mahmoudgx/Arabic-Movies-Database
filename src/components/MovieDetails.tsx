@@ -26,7 +26,11 @@ const MovieDetails = () => {
       />
       <div className="details-content">
         <h1>
-          {movie?.title} ({getYearFromDateString(movie?.release_date)})
+          {movie?.title} (
+          {movie?.release_date
+            ? getYearFromDateString(movie.release_date)
+            : "N/A"}
+          )
         </h1>
         <p>
           <span>عن :</span> {movie?.overview}
