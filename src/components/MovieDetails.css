@@ -9,7 +9,6 @@
     .movie-details {
       display: flex;
       flex-direction: column;
- 
     }
   }
   
@@ -23,6 +22,12 @@
   .details-content {
     max-width: 600px;
     padding-right: 10px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .details-content {
+      padding-right: 0px;
+    }
   }
   
   .details-content h1 {
