@@ -9,6 +9,7 @@
     .movie-details {
       display: flex;
       flex-direction: column;
+      align-items: center;
     }
   }
   
@@ -29,6 +30,7 @@
       padding-right: 0px;
     }
   }
+
   
   .details-content h1 {
     font-size: 2rem;
