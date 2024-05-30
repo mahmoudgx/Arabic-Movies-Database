@@ -3,6 +3,7 @@ import "./MoviesCard.css";
 import placeholder from "../assets/placeholder.png";
 import UseTvList from "../hooks/UseTvList";
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   sortBy: string;
@@ -33,14 +34,16 @@ const TvsCard = ({ sortBy }: Props) => {
             <React.Fragment key={index}>
               {page.results.map((tv) => (
                 <div key={tv.id} className="movie-card">
-                  <img
-                    src={
-                      tv.poster_path
-                        ? `https://image.tmdb.org/t/p/w500${tv.poster_path}`
-                        : placeholder
-                    }
-                    alt={tv.original_name}
-                  />
+                  <Link to={`/tv/${tv.id}`}>
+                    <img
+                      src={
+                        tv.poster_path
+                          ? `https://image.tmdb.org/t/p/w500${tv.poster_path}`
+                          : placeholder
+                      }
+                      alt={tv.original_name}
+                    />
+                  </Link>
                   <h3>{tv.original_name}</h3>
                   {/* <p>{movie.overview}</p> */}
 

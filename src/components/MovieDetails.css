@@ -1,0 +1,29 @@
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .movie-details img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .details-content {
+    max-width: 600px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .details-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .details-content p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  

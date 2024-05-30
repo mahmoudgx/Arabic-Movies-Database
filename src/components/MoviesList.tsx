@@ -3,6 +3,7 @@ import "./MoviesCard.css";
 import placeholder from "../assets/placeholder.png";
 import UseMoviesList from "../hooks/UseMoviesList";
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   sortBy: string;
@@ -37,16 +38,17 @@ const MoviesList = ({ sortBy }: Props) => {
             <React.Fragment key={index}>
               {page.results.map((movie) => (
                 <div key={movie.id} className="movie-card">
-                  <img
-                    src={
-                      movie.poster_path
-                        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                        : placeholder
-                    }
-                    alt={movie.title}
-                  />
+                  <Link to={`/movie/${movie.id}`}>
+                    <img
+                      src={
+                        movie.poster_path
+                          ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                          : placeholder
+                      }
+                      alt={movie.title}
+                    />
+                  </Link>
                   <h3>{movie.title}</h3>
-                  {/* <p>{movie.overview}</p> */}
                   <p style={{ fontWeight: "bold" }}>
                     تاريخ الاصدار: {getYearFromDateString(movie.release_date)}
                   </p>
