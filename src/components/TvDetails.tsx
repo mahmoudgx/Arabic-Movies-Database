@@ -3,23 +3,16 @@ import "./MovieDetails.css";
 import placeholder from "../assets/placeholder.png";
 import useTvDetails from "../hooks/useTvDetails";
 
-export interface MovieDetails {
-  id: number;
-  title: string;
-  overview: string;
-  poster_path: string;
-  release_date: string;
-  vote_average: number;
-  genres: { id: number; name: string }[];
-  runtime: number;
-}
-
 const TvDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { data: movie, isLoading, error } = useTvDetails(id!);
 
   if (isLoading) return <div>تحميل...</div>;
   if (error) return <div>حدث خطأ أثناء تحميل تفاصيل الفيلم</div>;
+
+  const getYearFromDateString = (dateString: string | number | Date) => {
+    return new Date(dateString).getFullYear();
+  };
 
   return (
     <div className="movie-details">
@@ -29,15 +22,22 @@ const TvDetails = () => {
             ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
             : placeholder
         }
-        alt={movie?.title}
+        alt={movie?.name}
       />
       <div className="details-content">
-        <h1>{movie?.title}</h1>
-        <p>{movie?.overview}</p>
-
-        <p>التقيم: {movie?.vote_average.toFixed(1)}/10</p>
-        <p>النوع: {movie?.genres.map((genre) => genre.name).join(", ")}</p>
-        <p>مدة العرض: {movie?.runtime} دقيقة</p>
+        <h1>
+          {movie?.name} ({getYearFromDateString(movie?.first_air_date)})
+        </h1>
+        <p>
+          <span>عن :</span> {movie?.overview}
+        </p>
+        <p>
+          <span>التقيم :</span> {movie?.vote_average.toFixed(1)}/10
+        </p>
+        <p>
+          <span>التصنيف :</span>{" "}
+          {movie?.genres.map((genre) => genre.name).join(", ")}
+        </p>
       </div>
     </div>
   );

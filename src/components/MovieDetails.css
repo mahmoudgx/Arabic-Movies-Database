@@ -1,20 +1,27 @@
 .movie-details {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     padding: 20px;
+    direction: rtl;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .movie-details {
+      display: flex;
+      flex-direction: column;
+    }
   }
   
   .movie-details img {
     width: 300px;
     height: auto;
     border-radius: 10px;
+    padding-left: 10px;
   }
   
   .details-content {
     max-width: 600px;
     margin-top: 20px;
-    text-align: center;
   }
   
   .details-content h1 {
@@ -25,5 +32,10 @@
   .details-content p {
     font-size: 1rem;
     margin: 5px 0;
+  }
+
+  .details-content span {
+    font-size: 1.5;
+    font-weight: bold;
   }
   
