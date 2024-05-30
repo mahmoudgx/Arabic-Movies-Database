@@ -24,8 +24,8 @@ const SortMovies: React.FC<SortMoviesProps> = ({ sortBy, setSortBy }) => {
         <option value="release_date.asc">تاريخ الإصدار ↑</option>
         <option value="vote_average.desc">التقييم الأعلى ↓</option>
         <option value="vote_average.asc">التقييم الأعلى ↑</option>
-        <option value="name.asc">الاسم ↑</option>
-        <option value="name.desc">الاسم ↓</option>
+        <option value="title.asc">الاسم (أ - ي)</option>
+        <option value="title.desc">الاسم (ي - أ)</option>
       </select>
     </div>
   );

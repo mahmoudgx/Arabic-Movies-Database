@@ -27,8 +27,8 @@ const TvDetails = () => {
       <div className="details-content">
         <h1>
           {movie?.name} (
-          {movie?.release_date
-            ? getYearFromDateString(movie.release_date)
+          {movie?.first_air_date
+            ? getYearFromDateString(movie.first_air_date)
             : "N/A"}
           )
         </h1>

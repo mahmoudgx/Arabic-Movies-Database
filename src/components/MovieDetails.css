@@ -10,20 +10,19 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      direction: rtl;
     }
   }
   
   .movie-details img {
     width: 300px;
     height: auto;
-    border-radius: 10px;
-    padding-left: 10px;
+    border-radius: 8px;
+
   }
   
   .details-content {
     max-width: 600px;
-    margin-top: 20px;
+    padding-right: 10px;
   }
   
   .details-content h1 {

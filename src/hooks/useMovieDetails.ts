@@ -21,7 +21,7 @@ export interface MovieDetails {
 const useMovieDetails = (id: string) => {
   return useQuery({
     queryKey: ["MovieDetails", id],
-    queryFn: () => apiClient.getById(id, { params: { language: "ar" } }),
+    queryFn: () => apiClient.getById(id, { params: { language: "ar" } }),     staleTime: 24 * 60 * 60 * 1000,
   });
 };
 
