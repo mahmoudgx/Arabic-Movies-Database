@@ -21,7 +21,7 @@ const NavBar = () => {
           className={`navbar-item ${location.pathname === "/" ? "active" : ""}`}
         >
           <a href="/" className="navbar-link">
-            أفلام <FontAwesomeIcon icon={faFilm} />
+            <FontAwesomeIcon icon={faFilm} /> أفلام
           </a>
         </li>
         <li
@@ -30,7 +30,7 @@ const NavBar = () => {
           }`}
         >
           <a href="/tv" className="navbar-link">
-            مسلسلات <FontAwesomeIcon icon={faTv} />
+            <FontAwesomeIcon icon={faTv} /> مسلسلات
           </a>
         </li>
       </ul>
