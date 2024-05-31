@@ -29,8 +29,15 @@
     border-radius: 8px;
     padding: 16px;
     max-width: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
     background-color: white;
+  }
+
+  .movie-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
   .movie-card img {

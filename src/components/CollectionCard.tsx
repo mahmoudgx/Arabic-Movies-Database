@@ -1,6 +1,5 @@
 import React from "react";
 import { Collection } from "../hooks/useSearchCollections";
-import "./CollectionCard.css";
 import placeholder from "../assets/placeholder.png";
 
 interface CollectionCardProps {

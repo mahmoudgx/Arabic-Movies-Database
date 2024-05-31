@@ -64,7 +64,7 @@
   cursor: pointer;
 }
 
-/* Media Query for Mobile Responsiveness */
+
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;
