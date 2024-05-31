@@ -10,6 +10,7 @@ export interface Collection {
   original_name: string;
   title: string;
   backdrop_path: string;
+  profile_path: string;
 }
 
 const useSearchCollections = (query: string) =>

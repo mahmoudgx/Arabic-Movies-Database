@@ -7,16 +7,15 @@ interface CollectionCardProps {
 }
 
 const CollectionCard: React.FC<CollectionCardProps> = ({ collection }) => {
+  const imagePath = collection.poster_path
+    ? `https://image.tmdb.org/t/p/w500${collection.poster_path}`
+    : collection.profile_path
+    ? `https://image.tmdb.org/t/p/w500${collection.profile_path}`
+    : placeholder;
+
   return (
     <div className="collection-card">
-      {collection.poster_path ? (
-        <img
-          src={`https://image.tmdb.org/t/p/w500${collection.poster_path}`}
-          alt={collection.name}
-        />
-      ) : (
-        <img src={placeholder} alt="Placeholder" />
-      )}
+      <img src={imagePath} alt={collection.name || "Placeholder"} />
       <h3>{collection.name || collection.original_name || collection.title}</h3>
     </div>
   );
