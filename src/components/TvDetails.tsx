@@ -42,6 +42,9 @@ const TvDetails = () => {
           <span>التصنيف :</span>{" "}
           {movie?.genres.map((genre) => genre.name).join(", ")}
         </p>
+        <p>
+          <span>مدة الحلقة :</span> {movie?.episode_run_time} دقيقة
+        </p>
       </div>
     </div>
   );

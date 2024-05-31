@@ -16,6 +16,7 @@ export interface TvDetails {
   first_air_date: string;
   vote_average: number;
   genres: { id: number; name: string }[];
+  episode_run_time: number;
   runtime: number;
 }
 
