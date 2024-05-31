@@ -1,10 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
 
-
-
-
-
 const apiClient = new APIClient<TvDetails>("/tv");
 
 export interface TvDetails {
@@ -19,8 +15,6 @@ export interface TvDetails {
   episode_run_time: number;
   runtime: number;
 }
-
-
 
 const useTvDetails = (id: string) => {
   return useQuery({

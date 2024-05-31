@@ -6,9 +6,10 @@ import TvsCard from "./components/TvsCard";
 import Footer from "./components/Footer";
 import SortMovies from "./components/SortMovies";
 import MovieDetails from "./components/MovieDetails";
-import "./App.css";
+import SearchResults from "./components/SearchResults";
 import ScrollToTop from "react-scroll-to-top";
 import TvDetails from "./components/TvDetails";
+import "./App.css";
 
 const App = () => {
   const [sortBy, setSortBy] = useState("popularity.desc");
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/tv" element={<TvsCard sortBy={sortBy} />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
             <Route path="/tv/:id" element={<TvDetails />} />
+            <Route path="/search" element={<SearchResults />} />
           </Routes>
         </div>
         <Footer />

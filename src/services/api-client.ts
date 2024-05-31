@@ -32,6 +32,15 @@ class APIClient<T> {
       .get<T>(`${this.endpoint}/${id}`, config)
       .then(res => res.data);
   };
+
+  search = (query: string, config?: AxiosRequestConfig) => {
+    return axiosInstance
+      .get<FetchResponse<T>>(`/search/multi`, {
+        ...config,
+        params: { query, ...config?.params },
+      })
+      .then(res => res.data);
+  };
 }
 
 export default APIClient;
