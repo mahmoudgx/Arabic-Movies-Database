@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import TvsCard from "./components/TvsCard";
 import Footer from "./components/Footer";
 import SortMovies from "./components/SortMovies";
+import SortTv from "./components/SortTv";
 import MovieDetails from "./components/MovieDetails";
 import SearchResults from "./components/SearchResults";
 import ScrollToTop from "react-scroll-to-top";
@@ -12,7 +13,8 @@ import TvDetails from "./components/TvDetails";
 import "./App.css";
 
 const App = () => {
-  const [sortBy, setSortBy] = useState("popularity.desc");
+  const [sortByMovies, setSortByMovies] = useState("popularity.desc");
+  const [sortByTv, setSortByTv] = useState("popularity.desc");
 
   return (
     <Router>
@@ -20,10 +22,28 @@ const App = () => {
         <ScrollToTop smooth />
         <NavBar />
         <div className="main-content">
-          <SortMovies sortBy={sortBy} setSortBy={setSortBy} />
           <Routes>
-            <Route path="/" element={<MoviesList sortBy={sortBy} />} />
-            <Route path="/tv" element={<TvsCard sortBy={sortBy} />} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <SortMovies
+                    sortBy={sortByMovies}
+                    setSortBy={setSortByMovies}
+                  />
+                  <MoviesList sortBy={sortByMovies} />
+                </>
+              }
+            />
+            <Route
+              path="/tv"
+              element={
+                <>
+                  <SortTv sortBy={sortByTv} setSortBy={setSortByTv} />
+                  <TvsCard sortBy={sortByTv} />
+                </>
+              }
+            />
             <Route path="/movie/:id" element={<MovieDetails />} />
             <Route path="/tv/:id" element={<TvDetails />} />
             <Route path="/search" element={<SearchResults />} />

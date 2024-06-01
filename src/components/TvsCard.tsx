@@ -45,8 +45,6 @@ const TvsCard = ({ sortBy }: Props) => {
                     />
                   </Link>
                   <h3>{tv.original_name}</h3>
-                  {/* <p>{movie.overview}</p> */}
-
                   <p style={{ fontWeight: "bold" }}>
                     تاريخ اول عرض: {tv.first_air_date}
                   </p>
