@@ -1,17 +1,17 @@
 .navbar {
-  background-color: #333;
-  padding: 10px;
+  background-color: #282c34;
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
   direction: rtl;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
   padding: 0;
   margin: 0;
 }
@@ -21,49 +21,69 @@
 }
 
 .navbar-link {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-size: 18px;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+  transition: color 0.3s ease;
 }
 
 .navbar-link:hover {
-  color: #f0a500;
+  color: #ffa500;
 }
 
 .navbar-link svg {
   font-size: 20px;
+  margin-left: 5px; 
 }
 
 .navbar-item.active .navbar-link {
-  color: #f0a500;
+  color: #ffa500;
 }
 
 .search-form {
   display: flex;
   align-items: center;
+  width: 100%; 
+  max-width: 500px; 
 }
 
 .search-input {
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-  border: 1px solid #fff;
+  flex-grow: 1; 
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: 1px solid #cccccc;
   border-radius: 4px;
   background-color: #444;
   color: #fff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #cccccc;
+}
+
+.search-input:focus {
+  background-color: #555;
+  border-color: #ffa500;
+  outline: none;
 }
 
 .search-button {
-  padding: 0.5rem;
-  background-color: #444;
-  border: 1px solid #fff;
+  padding: 10px 15px; 
+  background-color: #ffa500;
+  border: none;
   border-radius: 4px;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.search-button:hover {
+  background-color: #e69500;
+}
 
 @media screen and (max-width: 768px) {
   .navbar {
@@ -74,7 +94,7 @@
   .navbar-list {
     flex-direction: column;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
   }
 
   .navbar-link {
@@ -83,5 +103,16 @@
 
   .search-form {
     margin-top: 10px;
+    width: 100%;
+  }
+
+  .search-input {
+    width: calc(100% - 62px);
+    margin-right: 10px;
+  }
+
+  .search-button {
+    width: 52px; 
+
   }
 }
